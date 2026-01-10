@@ -65,20 +65,49 @@ max(gdp_df_drop_rename[,2])
 How many observations are there per year? 
 
 ```{r}
-gdp_df_drop_rename |> 
+no_obsv_year <- gdp_df_drop_rename |> 
   count(Year)
+no_obsv_year
 ```
 
 Make a plot to view the number of observations per year.
 
 ```{r}
-
+no_obsv_year |> 
+  ggplot(aes(x = Year, y = n)) + 
+    geom_col()
 ```
 
 
 ```{r}
 
+
+
 ```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
