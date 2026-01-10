@@ -18,14 +18,25 @@ library(tidyverse)
 ```
 
 
+1. Using the read_csv() function, read the GDP dataset into your notebook as a tibble called gdp_df. After reading it in, inspect the first 10 rows and then inspect the last 10 rows.
+
 
 ```{r}
+
 gdp_df <- read_csv("../data/gdp_per_capita.csv")
 
 gdp_df|> 
   arrange(Value) |> view()
   head(10) |> 
-  tail(2)
+  tail(10)
+  
+```
+
+
+```{r}
+
+
+
 ```
 
 
@@ -38,10 +49,10 @@ gdp_df|>
 
 ```
 
-
 ```{r}
 
 ```
+
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
