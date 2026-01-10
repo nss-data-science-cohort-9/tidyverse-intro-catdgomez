@@ -55,16 +55,30 @@ gdp_df_drop_rename <- gdp_df_drop |>
 gdp_df_drop_rename
 ```
 
+3. Which years are represented in this dataset? 
+
+```{r}
+min(gdp_df_drop_rename[,2])
+max(gdp_df_drop_rename[,2])
+```
+
+How many observations are there per year? 
+
+```{r}
+gdp_df_drop_rename |> 
+  count(Year)
+```
+
+Make a plot to view the number of observations per year.
 
 ```{r}
 
 ```
 
+
 ```{r}
 
 ```
-
-
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
