@@ -25,23 +25,34 @@ library(tidyverse)
 
 gdp_df <- read_csv("../data/gdp_per_capita.csv")
 
-gdp_df|> 
-  arrange(Value) |> view()
-  head(10) |> 
-  tail(10)
-  
+head(gdp_df, 10)
+
+```
+
+```{r}
+tail(gdp_df, 10)
+```
+
+
+2. Drop the 'Value Footnotes' column, and rename the remaining columns to 'Country', 'Year', and 'GDP_Per_Capita'.
+
+```{r}
+
+gdp_df_drop <- gdp_df |> 
+  select(-`Value Footnotes`)
+
+
+gdp_df_drop
+
 ```
 
 
 ```{r}
 
+gdp_df_drop_rename <- gdp_df_drop |> 
+  rename(c(GDP_Per_Capita = Value, Country = `Country or Area`))
 
-
-```
-
-
-```{r}
-
+gdp_df_drop_rename
 ```
 
 
