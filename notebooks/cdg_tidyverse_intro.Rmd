@@ -55,7 +55,7 @@ gdp_df_drop_rename <- gdp_df_drop |>
 gdp_df_drop_rename
 ```
 
-3. Which years are represented in this dataset? 
+3. Which years are represented in this dataset? How many observations are there per year? Make a plot to view the number of observations per year.
 
 ```{r}
 min(gdp_df_drop_rename[,2])
@@ -78,6 +78,121 @@ no_obsv_year |>
     geom_col()
 ```
 
+4. How many countries are represented in this dataset? Which countries have the fewest observations?
+
+
+```{r}
+
+no_obsv_ctry <- gdp_df_drop_rename |> 
+  count(Country)
+no_obsv_ctry
+
+```
+
+
+```{r}
+
+gdp_df_drop_rename |> 
+  distinct(Country[!is.na(Country)])
+
+gdp_df_drop_rename |> 
+  distinct(Country)
+
+```
+
+```{r}
+
+length(unique(gdp_df_drop_rename$Country))
+
+```
+
+Which countries have the fewest observations?
+
+```{r}
+
+min(no_obsv_ctry$n)
+# SORT DESC TAIL
+```
+
+
+```{r}
+no_obsv_ctry |> 
+  mutate(freq = min(n))
+
+```
+
+
+```{r}
+
+tail(sort(no_obsv_ctry$Country), 3)
+
+```
+
+
+```{r}
+# no_obsv_ctry[, min("n"), by=c("Country","n")]
+with(unique(no_obsv_ctry[c("Country", "n")]), table(no_obsv_ctry))
+```
+```{r}
+table(gdp_df_drop_rename$Country)
+```
+
+```{r}
+
+num_obsv_ctry <- gdp_df_drop_rename |> 
+  count(Country, sort = TRUE, name = "num_obsv_of_ctry")
+tail(num_obsv_ctry)
+
+```
+
+
+```{r}
+lowest_num_obsrv_ctry <- num_obsv_ctry |> 
+  arrange(num_obsv_of_ctry) |> 
+  slice(1:5)
+lowest_num_obsrv_ctry
+```
+
+
+```{r}
+min(num_obsv_ctry$num_obsv_of_ctry, na.rm = TRUE)
+```
+5. Create a new tibble by subsetting gdp_df to just the year 2021. Call this new tibble gdp_2021.
+
+```{r}
+
+# gdp_2021 <- gdp_df_drop_rename |> 
+#   (gdp_df_drop_rename$Year %in% 2021)
+
+```
+
+
+```{r}
+
+gdp_2021 <- gdp_df_drop_rename |> 
+  filter(Year == "2021")
+
+gdp_2021
+
+```
+
+```{r}
+gdp_2021 |> 
+  count(Year)
+min(gdp_2021[,2])
+max(gdp_2021[,2])
+```
+6. Use summary() to find the summary statistics for GDP per capita in 2021.
+
+```{r}
+
+summary(gdp_2021$GDP_Per_Capita)
+summary(gdp_2021)
+
+```
+
+7. Create a histogram of GDP Per Capita numbers for 2021 (you may wish to adjust the number of bins for your histogram).
+
 
 ```{r}
 
@@ -85,7 +200,11 @@ no_obsv_year |>
 
 ```
 
+
 ```{r}
+
+
+
 ```
 
 
@@ -108,6 +227,9 @@ no_obsv_year |>
 ```{r}
 ```
 
+
+```{r}
+```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
