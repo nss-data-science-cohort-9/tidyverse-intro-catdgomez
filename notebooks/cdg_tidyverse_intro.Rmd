@@ -196,19 +196,20 @@ summary(gdp_2021)
 
 ```{r}
 
-
+ggplot( gdp_2021, aes( x= GDP_Per_Capita ) ) +
+  geom_histogram( bins=50, color = "white", fill = "skyblue4" ) +
+  labs(
+    title = "Histogram of GDP Per Capita (2021)",
+    x = "GDP per Capita (Current US$)",
+    y = "Frequency (Number of Countries)"
+  )
 
 ```
-
+8. Find the top 5 counties and bottom 5 countries by GDP per capita in 2021.
 
 ```{r}
 
 
-
-```
-
-
-```{r}
 ```
 
 
