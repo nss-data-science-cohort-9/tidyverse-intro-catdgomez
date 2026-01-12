@@ -208,7 +208,10 @@ ggplot( gdp_2021, aes( x= GDP_Per_Capita ) ) +
 8. Find the top 5 counties and bottom 5 countries by GDP per capita in 2021.
 
 ```{r}
+num_obsv_ctry_2021 <- gdp_2021 |> 
+  arrange(GDP_Per_Capita, sort = TRUE)
 
+num_obsv_ctry_2021
 
 ```
 
