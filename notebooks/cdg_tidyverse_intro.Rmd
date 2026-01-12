@@ -212,7 +212,66 @@ num_obsv_ctry_2021 <- gdp_2021 |>
   arrange(GDP_Per_Capita, sort = TRUE)
 
 num_obsv_ctry_2021
+head(num_obsv_ctry_2021)
+tail(num_obsv_ctry_2021)
+```
 
+
+```{r}
+
+
+lowest_gdp_2021 <- num_obsv_ctry_2021 |> 
+  slice(1:5)
+
+lowest_gdp_2021
+
+```
+
+
+```{r}
+
+highest_gdp_2021 <- num_obsv_ctry_2021 |> 
+  slice(tail(row_number(), 5))
+
+highest_gdp_2021
+
+```
+9. Now, return to the full dataset, gdp_df. Pivot the data for 1990 and 2021 (using pivot_wider() function) so that each row corresponds to a country, each column corresponds to a year, and the values in the table give the GDP_Per_Capita amount. Drop any rows that are missing values for either 1990 or 2021. Save the result to a tibble named gdp_pivoted.
+
+```{r}
+
+
+interim  <- gdp_df_drop_rename |>
+  filter(Year == c(1990, 2021)) |> 
+  # gdp_df_drop_rename[complete.cases(gdp_df_drop_rename), ] |> 
+  # gdp_df_drop_rename[complete.cases(gdp_df_drop_rename), ]
+  pivot_wider(
+      names_from = Year,
+      values_from = GDP_Per_Capita
+    )
+gdp_pivoted <- interim[complete.cases(interim), ]
+gdp_pivoted
+
+
+```
+
+
+```{r}
+```
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
 ```
 
 
@@ -231,6 +290,29 @@ num_obsv_ctry_2021
 ```{r}
 ```
 
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
 
 ```{r}
 ```
