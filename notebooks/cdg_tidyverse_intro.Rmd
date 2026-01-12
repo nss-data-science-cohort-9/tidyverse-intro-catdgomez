@@ -353,13 +353,22 @@ gdp_df <- merge(gdp_df_drop_rename, continents, by="Country")
 gdp_df
 ```
 
+15. Determine the number of countries per continent. Create a bar chart showing this.
+
 ```{r}
+
+gdp_df |> 
+  group_by(Continent) |> 
+  summarise(Num_Countries_per_Continent = n_distinct(Country))
 
 
 
 ```
 
 ```{r}
+
+
+
 ```
 
 ```{r}
