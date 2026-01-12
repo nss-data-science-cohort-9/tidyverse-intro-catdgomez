@@ -357,24 +357,51 @@ gdp_df
 
 ```{r}
 
-gdp_df |> 
+num_continents <- gdp_df |> 
   group_by(Continent) |> 
   summarise(Num_Countries_per_Continent = n_distinct(Country))
 
+num_continents
 
+```
+
+16. Create a boxplot showing GDP per capita in 2021 split out by continent. What do you notice?
+
+```{r}
+
+gdp_df_2021_continents  <- gdp_df |>
+  filter(Year == 2021)
+
+gdp_df_2021_continents
+
+my_colors <- c("#FFA500", "#008000", "#1E90FF", "#FF1493", "red", "purple")
+
+boxplot(GDP_Per_Capita ~ Continent, data = gdp_df_2021_continents,
+      main = "GDP per Capita in 2021 by Continent", xlab = "Continents", ylab = "GDP Per Capita",
+      col = my_colors, border = "black", notch = FALSE, notchwidth = 0.5,
+      medcol = "white", whiskcol = "black", boxwex = 0.5, outpch = 19,
+      outcol = "black"
+      )
+# text(seq_along(unique(gdp_df_2021_continents$Continent)), par("usr")[3], 
+#     labels = seq_along(unique(gdp_df_2021_continents$Continent)), srt = 45, adj = c(1.1, 1.1), xpd = TRUE)
 
 ```
 
 ```{r}
-
-
+# 
+# boxplot(GDP_Per_Capita ~ Continent, data = gdp_df_2021_continents, pars  =  list(xaxt = "n"))
+# axis(2, at=gdp_df_2021_continents$Continent, labels = TRUE)
+# text(y = seq(0, 100, by=20), par("usr")[1], labels = lablist.y, srt = 45, pos = 2, xpd = TRUE)
+# # axis(1, at=c(1,2), labels = FALSE)
+# text(c(1:6), par("usr")[3] - 1, labels = gdp_df_2021_continents$Continent, srt = 45, pos = 1, xpd = TRUE)
+# text(y = seq(1, 6, by=20), par("usr")[1], labels = gdp_df_2021_continents$Continents, srt = 45, pos = 1, xpd = TRUE)
 
 ```
 
-```{r}
-```
+
 
 ```{r}
+
 ```
 
 ```{r}
