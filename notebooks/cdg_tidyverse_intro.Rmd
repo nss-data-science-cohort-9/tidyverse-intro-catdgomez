@@ -264,13 +264,19 @@ gdp_pivoted
 ```
 
 
+11. How many countries experienced a negative percent change in GDP per capita from 1990 to 2021?
+      Nine (9) countries experienced a negative percent change in GDP per capita from 1990 to 2021.
 
 
 ```{r}
+
+gdp_pivoted[gdp_pivoted[4] < 0, ]
+
 ```
 
 
 ```{r}
+
 ```
 
 
