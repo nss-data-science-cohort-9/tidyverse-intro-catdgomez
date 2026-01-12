@@ -333,9 +333,13 @@ ggplot(data=gdp_albania, aes(x=Year, y=GDP_Per_Capita, group=1)) +
 
 ```
 
+13. Read in continents.csv contained in the data folder into a new tibble called continents. We will be using this tibble to add a new column to our dataset.
+
 ```{r}
 
+continents <- read_csv("../data/continents.csv")
 
+head(continents, 10)
 
 ```
 
