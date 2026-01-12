@@ -339,14 +339,24 @@ ggplot(data=gdp_albania, aes(x=Year, y=GDP_Per_Capita, group=1)) +
 
 continents <- read_csv("../data/continents.csv")
 
-head(continents, 10)
+
+continents
+# head(continents, 10)
 
 ```
 
+14. Merge gdp_df and continents. Keep only the countries that appear in both data frames. Save the result back to gdp_df.
+
 ```{r}
+
+gdp_df <- merge(gdp_df_drop_rename, continents, by="Country")
+gdp_df
 ```
 
 ```{r}
+
+
+
 ```
 
 ```{r}
