@@ -254,10 +254,17 @@ gdp_pivoted
 
 
 ```
-
+10. Create a new column in gdp_pivoted named Percent_Change. This column should contain the percent change in GDP_Per_Capita from 1990 to 2021. Hint: Percent change is calculated as 100*(New Value - Old Value) / Old Value.
 
 ```{r}
+
+gdp_pivoted$Percent_Change <- round(((gdp_pivoted$`2021` - gdp_pivoted$`1990`) / gdp_pivoted$`1990` )* 100, 4)
+# gdp_pivoted$Percent_Change <- (((gdp_pivoted$`2021` - gdp_pivoted$`1990`) / gdp_pivoted$`1990` )* 100)
+gdp_pivoted
 ```
+
+
+
 
 ```{r}
 ```
