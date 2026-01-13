@@ -563,14 +563,25 @@ life_exp_facet |>
   facet_grid(cols = vars(Country))
 ```
 
+23. Create a scatter plot of Life Expectancy vs GDP per Capita for the year 2021. What do you notice?
 
 ```{r}
 
+input <- gdp_le_2021[, c("Life_Expectancy", "GDP_Per_Capita")]
+
+plot(x = input$Life_Expectancy, y = input$GDP_Per_Capita,
+    xlab = "Life Expectancy",
+    ylab = "GDP Per Capita",
+    main = "Weight vs Milage"
+)
 
 ```
 
 
 ```{r}
+
+# ggplot(gdp_le_2021, aes(x = "Life_Expectancy", y = "GDP_Per_Capita")) +
+#         geom_point(aes(color = factor(Continent)))
 ```
 
 
