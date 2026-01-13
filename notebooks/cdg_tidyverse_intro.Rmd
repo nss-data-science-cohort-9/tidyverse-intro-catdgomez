@@ -402,15 +402,158 @@ boxplot(GDP_Per_Capita ~ Continent, data = gdp_df_2021_continents,
 
 ```{r}
 
-life_expectancy <- read_csv("../data/life_expectancy.csv")
-
-
+life_expectancy <- read_csv("../data/life_expectancy.csv", skip = 4)
 life_expectancy
 
 ```
 
+
+18. Drop the Country Code, Indicator Name, and Indicator Code columns. Then use pivot_longer to convert your data from wide to long. That is, instead of having one row per country and multiple colums per year, we want to have multiple rows per country and a single column for year. After melting, rename the columns to Country, Year, and Life_Expectancy.
+
+```{r}
+
+
+life_expectancy_rename <- life_expectancy |> 
+  rename(c(Country_Code = `Country Code`, Indicator_Name = `Indicator Name`, Indicator_Code = `Indicator Code`))
+
+
+drop.cols <- c("Country_Code", "Indicator_Name", "Indicator_Code", "2023", "...69")
+ 
+ 
+life_expectancy_dropped <- life_expectancy_rename |>
+  select(-one_of(drop.cols))
+ 
+life_expectancy_dropped
+
+```
+
+
+```{r}
+
+country_life_expectancy <- life_expectancy_dropped |> 
+  pivot_longer(!`Country Name`, names_to = "Year", values_to = "Life_Expectancy") |> 
+  rename(Country = `Country Name`)
+
+country_life_expectancy
+
+```
+
+
+```{r}
+
+country_life_expectancy |> 
+  filter(Country=="Zimbabwe")
+
+```
+
+19. What was the first country with a life expectancy to exceed 80?
+JAPAN in 1996
+```{r}
+
+country_life_expectancy |> 
+  filter(Life_Expectancy >= 80) |> 
+  arrange(Year) |> 
+  slice(1:10) 
+  
+
+```
+
+
+```{r}
+# country_life_expectancy  |> 
+#   filter(as.numeric(as.character(Life_Expectancy)) >= 80) |> 
+#   arrange(Year)
+```
+
+20. Merge gdp_df and life_expectancy, keeping all countries and years that appear in both tibbles. Save the result to a new tibble named gdp_le. If you get any errors in doing this, read them carefully and correct them. Look at the first five rows of your new data frame to confirm it merged correctly. Also, check the last five rows to make sure the data is clean and as expected.
+
 ```{r}
 ```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+
+```{r}
+
+
+
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
 
 ```{r}
 ```
