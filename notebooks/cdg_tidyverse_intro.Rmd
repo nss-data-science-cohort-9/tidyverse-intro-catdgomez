@@ -468,22 +468,50 @@ country_life_expectancy |>
 20. Merge gdp_df and life_expectancy, keeping all countries and years that appear in both tibbles. Save the result to a new tibble named gdp_le. If you get any errors in doing this, read them carefully and correct them. Look at the first five rows of your new data frame to confirm it merged correctly. Also, check the last five rows to make sure the data is clean and as expected.
 
 ```{r}
+
+gdp_le <- merge(gdp_df, country_life_expectancy, by=c("Country", "Year"))
+head(gdp_le)
+tail(gdp_le)
+
+
+
 ```
 
 
 ```{r}
+
+gdp_le |> 
+  filter(Country=="United Kingdom")
+
+```
+
+
+21. Create a new tibble, named gdp_le_2021 by extracting data for the year 2021 from gdp_le. How many countries have a life expectancy of at least 80 in 2021?
+
+```{r}
+
+gdp_le_2021 <- gdp_le |> 
+  filter(Year == "2021")
+# 
+gdp_le_2021
+
+```
+
+How many countries have a life expectancy of at least 80 in 2021?
+
+```{r}
+
+gdp_le_2021 |> 
+  filter(Life_Expectancy >= 80)
+
+
 ```
 
 
 ```{r}
-```
 
+length(which(gdp_le_2021$Life_Expectancy >= 80))
 
-```{r}
-```
-
-
-```{r}
 ```
 
 
