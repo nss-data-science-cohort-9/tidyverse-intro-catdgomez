@@ -564,6 +564,7 @@ life_exp_facet |>
 ```
 
 23. Create a scatter plot of Life Expectancy vs GDP per Capita for the year 2021. What do you notice?
+I notice that it appears to have a curved and positive relationship.
 
 ```{r}
 
@@ -582,10 +583,22 @@ plot(x = input$Life_Expectancy, y = input$GDP_Per_Capita,
 
 # ggplot(gdp_le_2021, aes(x = "Life_Expectancy", y = "GDP_Per_Capita")) +
 #         geom_point(aes(color = factor(Continent)))
+
+```
+
+24. Find the correlation between Life Expectancy and GDP per Capita for the year 2021. What is the meaning of this number?
+The Pearson correlation coefficient indicates the strength and direction of a linear relationship between two variables
+
+```{r}
+gdp_le_2021_dropped <- gdp_le_2021  |> 
+  filter(!is.na(Life_Expectancy) & !is.na(GDP_Per_Capita))
 ```
 
 
 ```{r}
+
+cor(gdp_le_2021_dropped$Life_Expectancy, gdp_le_2021_dropped$GDP_Per_Capita, method = "pearson")
+
 ```
 
 
